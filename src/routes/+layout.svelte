@@ -4,7 +4,7 @@
 	import '../app.postcss';
 </script>
 
-<main>
+<main class="overflow-hidden">
 	<div class="wrapper">
 		<!-- Sidebar -->
 		<aside class="sidebar h-screen bg-red-600">
@@ -19,7 +19,7 @@
 			</nav>
 
 			<!-- Main content area -->
-			<div class="main-content">
+			<div class="main-content overflow-y-scroll">
 				<!-- Your main content here -->
 				<slot />
 			</div>
@@ -37,7 +37,7 @@
 
 	.sidebar {
 		/* Define styles for the sidebar */
-		flex: 0 0 250px; /* Adjust width as needed */
+		flex: 0 0 320px; /* Adjust width as needed */
 		background-color: #f0f0f0;
 		/* Other styles... */
 	}

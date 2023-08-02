@@ -19,11 +19,7 @@
 		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Ka'</span>
 	</NavBrand>
 	<div class="flex items-center md:order-2">
-		<Avatar
-			id="avatar-menu"
-			src="https://flowbite-svelte.com/images/profile-picture-3.webp"
-			rounded
-		/>
+		<Avatar id="avatar-menu" src="/img/user-placeholder.png" rounded poi />
 		<NavHamburger on:click={toggle} class1="w-full md:flex md:w-auto md:order-1" />
 	</div>
 	<Dropdown placement="bottom" triggeredBy="#avatar-menu">
