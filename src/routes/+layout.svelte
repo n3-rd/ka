@@ -11,7 +11,7 @@
 			<Sidebar />
 		</aside>
 
-		<div class="content bg-slate-50">
+		<div class="content bg-slate-50 grid">
 			<!-- Navbar -->
 			<nav class="navbar">
 				<!-- Your navbar content here -->
@@ -39,19 +39,6 @@
 		/* Define styles for the sidebar */
 		flex: 0 0 320px; /* Adjust width as needed */
 		background-color: #f0f0f0;
-		/* Other styles... */
-	}
-
-	.content {
-		/* Define styles for the content area */
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.navbar {
-		/* Define styles for the navbar */
-
 		/* Other styles... */
 	}
 
