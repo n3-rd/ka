@@ -5,7 +5,6 @@
 	import { liveQuery } from 'dexie';
 	import Article from '$lib/sub-components/Article.svelte';
 	import SpeedDialButton from '$lib/sub-components/SpeedDialButton.svelte';
-	import { onMount } from 'svelte';
 
 	// @ts-ignore
 	let articleData = liveQuery(() => db.articles.toArray());
@@ -25,10 +24,10 @@
 <Sidebar asideClass="h-screen bg-white py-3 px-2 relative">
 	<div class="flex flex-col gap-4 max-h-screen overflow-y-scroll">
 		{#if $articleData}
-			<ul class="divide-y divide-slate-100 dark:divide-none">
+			<ul class="divide-y divide-slate-100 dark:divide-none overflow-x-hidden">
 				{#each $articleData.reverse() as article}
-					<button on:click={setCurrentArticle(article)}>
-						<Article title={article.title} source={article.source} />
+					<button on:click={setCurrentArticle(article)} class="w-full">
+						<Article title={article.title} source={article.source} image={article.image} />
 					</button>
 				{/each}
 			</ul>

@@ -17,33 +17,30 @@
 	console.log(import.meta.env.VITE_API_BASE_URL);
 	const addArticle = async () => {
 		try {
-			isLoading = true;
-			fetch(`${import.meta.env.VITE_API_BASE_URL}?url=${articleUrl}`)
-				// fetch(import.meta.env.VITE_API_BASE_URL)
-				.then((res) => res.json())
-				.then((data) => {
-					console.log(data.data);
-					articleData = data.data;
-					// @ts-ignore
-					const id = db.articles.add({
-						url: articleData.url,
-						title: articleData.title,
-						description: articleData.description,
-						image: articleData.image,
-						content: articleData.content,
-						author: articleData.author,
-						source: articleData.source,
-						published: articleData.published,
-						ttr: articleData.ttr
-					});
-					console.log(data);
-					console.log(`Added article with id ${id}`);
-				})
-				.catch((err) => console.log(err));
+			isLoading = true; // Set isLoading to true before fetch
+			const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}?url=${articleUrl}`);
+			const data = await response.json();
+			console.log(data.data);
+			articleData = data.data;
+
+			// @ts-ignore
+			const id = db.articles.add({
+				url: articleData.url,
+				title: articleData.title,
+				description: articleData.description,
+				image: articleData.image,
+				content: articleData.content,
+				author: articleData.author,
+				source: articleData.source,
+				published: articleData.published,
+				ttr: articleData.ttr
+			});
+			console.log(`Added article with id ${id}`);
 		} catch (err) {
-			console.log('failed', err);
+			console.error('Failed to fetch or add article:', err);
 		} finally {
-			isLoading = false;
+			isLoading = false; // Set isLoading back to false after fetch
+			// Close the modal only after the fetch is completed
 			defaultModal = false;
 		}
 	};

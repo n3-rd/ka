@@ -8,13 +8,17 @@
 	 * @type {String}
 	 */
 	export let source;
+	/**
+	 * @type {String}
+	 */
+	export let image;
 </script>
 
 <div
-	class="flex items-center gap-3 hover:bg-slate-200 px-3 py-5 rounded-xl cursor-pointer"
+	class="flex items-center gap-3 hover:bg-slate-200 px-3 py-5 rounded-xl cursor-pointer text-justify"
 	id="action"
 >
-	<Avatar src="/img/user-placeholder.png" alt="list icon" class="flex-shrink-0" rounded />
+	<Avatar src={image} alt="list icon" class="flex-shrink-0 object-cover object-center" rounded />
 	<div class="min-w-0">
 		<p class="text-sm font-semibold text-gray-900 truncate dark:text-white">
 			{title}
