@@ -1,10 +1,11 @@
 <script>
+	import { theme } from '$lib/theme.js';
 	import Navbar from '$lib/Navbar.svelte';
 	import Sidebar from '$lib/Sidebar.svelte';
 	import '../app.postcss';
 </script>
 
-<main class="overflow-hidden">
+<main class="overflow-hidden {$theme}">
 	<div class="wrapper">
 		<!-- Sidebar -->
 		<aside class="sidebar h-screen bg-red-600">
@@ -19,7 +20,7 @@
 			</nav>
 
 			<!-- Main content area -->
-			<div class="main-content overflow-y-scroll">
+			<div class="main-content overflow-y-scroll dark:bg-dark-900">
 				<!-- Your main content here -->
 				<slot />
 			</div>
@@ -47,5 +48,9 @@
 		/* Define styles for the main content area */
 		padding: 1rem;
 		/* Other styles... */
+	}
+	.dark {
+		background-color: #333;
+		color: white;
 	}
 </style>

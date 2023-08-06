@@ -8,7 +8,7 @@
 	let currentArticleData = $currentArticle;
 </script>
 
-<div class="h-full w-full">
+<div class="h-full w-full dark:bg-dark-900">
 	<ArticleImage imageUrl={$currentArticle.image} />
 	<ArticleHeader headingText={$currentArticle.title} />
 	<ArticleInfo authour={$currentArticle.author} ttr={$currentArticle.ttr} />

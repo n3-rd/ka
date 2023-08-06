@@ -22,7 +22,7 @@
 	});
 </script>
 
-<div class="article-content px-4 relative whitespace-break-spaces">
+<div class="article-content px-4 relative whitespace-break-spaces dark:bg-dark-900">
 	{@html content}
 </div>
 

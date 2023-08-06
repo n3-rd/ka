@@ -21,7 +21,7 @@
 	};
 </script>
 
-<Sidebar asideClass="h-screen bg-white py-3 px-2 relative">
+<Sidebar asideClass="h-screen bg-white py-3 px-2 relative dark:bg-dark-900">
 	<div class="flex flex-col gap-4 max-h-screen overflow-y-scroll">
 		{#if $articleData}
 			<ul class="divide-y divide-slate-100 dark:divide-none overflow-x-hidden">

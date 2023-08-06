@@ -15,7 +15,7 @@
 </script>
 
 <div
-	class="flex items-center gap-3 hover:bg-slate-200 px-3 py-5 rounded-xl cursor-pointer text-justify"
+	class="flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-dark-800 px-3 py-5 rounded-xl cursor-pointer text-justify"
 	id="action"
 >
 	<Avatar src={image} alt="list icon" class="flex-shrink-0 object-cover object-center" rounded />
@@ -24,7 +24,7 @@
 			{title}
 		</p>
 		<p class="text-sm text-gray-500 truncate dark:text-gray-400">
-			from <span class="text-primary-800 font-semibold">{source}</span>
+			from <span class="text-primary-800 dark:text-primary-500 font-semibold">{source}</span>
 		</p>
 	</div>
 </div>
