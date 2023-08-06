@@ -11,7 +11,7 @@
 			<Sidebar />
 		</aside>
 
-		<div class="content bg-slate-50 grid">
+		<div class="content bg-slate-50 grid w-full">
 			<!-- Navbar -->
 			<nav class="navbar">
 				<!-- Your navbar content here -->

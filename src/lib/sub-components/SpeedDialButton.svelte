@@ -17,9 +17,9 @@
 	console.log(import.meta.env.VITE_API_BASE_URL);
 	const addArticle = async () => {
 		try {
-			// fetch(`${import.meta.env.VITE_API_BASE_URL}?url=${articleUrl}`)
 			isLoading = true;
-			fetch(import.meta.env.VITE_API_BASE_URL)
+			fetch(`${import.meta.env.VITE_API_BASE_URL}?url=${articleUrl}`)
+				// fetch(import.meta.env.VITE_API_BASE_URL)
 				.then((res) => res.json())
 				.then((data) => {
 					console.log(data.data);
@@ -38,7 +38,6 @@
 					});
 					console.log(data);
 					console.log(`Added article with id ${id}`);
-					// defaultModal = false;
 				})
 				.catch((err) => console.log(err));
 		} catch (err) {
