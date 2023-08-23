@@ -65,6 +65,8 @@
 			{/if}
 			Fetch Article</Button
 		>
-		<Button color="alternative" on:click={() => (defaultModal = false)}>Close</Button>
+		<Button color="alternative" disabled={isLoading} on:click={() => (defaultModal = false)}
+			>Close</Button
+		>
 	</svelte:fragment>
 </Modal>
