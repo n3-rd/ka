@@ -1,5 +1,8 @@
 <script>
-	import { Avatar, Popover } from 'flowbite-svelte';
+	import { deleteArticle } from './../../stores.js';
+	import { db } from '$lib/db.js';
+	import { Avatar, Popover, Tooltip } from 'flowbite-svelte';
+	import { Icon } from 'flowbite-svelte-icons';
 	/**
 	 * @type {String}
 	 */
@@ -12,6 +15,21 @@
 	 * @type {String}
 	 */
 	export let image;
+
+	/**
+	 * Description
+	 * @param {any} article
+	 */
+
+	/**
+	 * @type {number}
+	 */
+	export let id;
+
+	const handleDeleteClick = async () => {
+		await deleteArticle({ id });
+		// You can also perform additional actions after deleting the article if needed
+	};
 </script>
 
 <div
@@ -27,6 +45,7 @@
 			from <span class="text-primary-800 dark:text-primary-500 font-semibold">{source}</span>
 		</p>
 	</div>
+	<!-- <div class="actions h-full bg-red-600 p-2" id="action">lww</div> -->
 </div>
 <Popover
 	class="w-64 text-sm font-light "
@@ -34,5 +53,12 @@
 	triggeredBy="#action"
 	trigger="click"
 >
-	And here's some amazing content. It's very engaging. Right?
+	<div class="flex w-full justify-between">
+		<Icon name="trash-bin-solid" on:click={handleDeleteClick} />
+		<Tooltip placement="bottom">Delete Article</Tooltip>
+		<Icon name="link-solid" />
+		<Tooltip placement="bottom">Copy Article Link</Tooltip>
+		<Icon name="share-all-solid" />
+		<Tooltip placement="bottom">Share Article</Tooltip>
+	</div>
 </Popover>

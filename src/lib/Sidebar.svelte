@@ -5,6 +5,7 @@
 	import { liveQuery } from 'dexie';
 	import Article from '$lib/sub-components/Article.svelte';
 	import SpeedDialButton from '$lib/sub-components/SpeedDialButton.svelte';
+	import List from '$lib/skeletons/List.svelte';
 
 	// @ts-ignore
 	let articleData = liveQuery(() => db.articles.toArray());
@@ -14,7 +15,7 @@
 	 * @returns {any}
 	 */
 	const setCurrentArticle = (
-		/** @type {{ url: string; title: string; author: string; published: string; ttr: number; image: string; content: string; }} */ article
+		/** @type {{id:number; url: string; title: string; author: string; published: string; ttr: number; image: string; content: string; }} */ article
 	) => {
 		currentArticle.set(article);
 		console.log($currentArticle);
@@ -27,11 +28,20 @@
 			<ul class="divide-y divide-slate-100 dark:divide-none overflow-x-hidden">
 				{#each $articleData.reverse() as article}
 					<button on:click={setCurrentArticle(article)} class="w-full">
-						<Article title={article.title} source={article.source} image={article.image} />
+						<Article
+							title={article.title}
+							source={article.source}
+							image={article.image}
+							id={article.id}
+						/>
 					</button>
 				{/each}
 			</ul>
 		{/if}
 	</div>
+	<!-- check if still loading -->
+	{#if !$articleData}
+		<List />
+	{/if}
 	<div class="absolute right-2 bottom-2"><SpeedDialButton /></div>
 </Sidebar>
