@@ -33,6 +33,7 @@
 							source={article.source}
 							image={article.image}
 							id={article.id}
+							url={article.url}
 						/>
 					</button>
 				{/each}

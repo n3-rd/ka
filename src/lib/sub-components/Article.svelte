@@ -1,5 +1,5 @@
 <script>
-	import { deleteArticle } from '$lib/stores.js';
+	import { deleteArticle, copyArticle } from '$lib/stores.js';
 	import { db } from '$lib/db.js';
 	import { Avatar, Popover, Tooltip } from 'flowbite-svelte';
 	import { Icon } from 'flowbite-svelte-icons';
@@ -26,10 +26,18 @@
 	 */
 	export let id;
 
+	/**
+	 * @type {string}
+	*/
+	export let url
+
 	const handleDeleteClick = async () => {
 		await deleteArticle({ id });
 		// You can also perform additional actions after deleting the article if needed
 	};
+	const handleCopyArticle = async () =>{
+		await copyArticle(url)
+	}
 </script>
 
 <div
@@ -56,7 +64,7 @@
 	<div class="flex w-full justify-between">
 		<Icon name="trash-bin-solid" on:click={handleDeleteClick} />
 		<Tooltip placement="bottom">Delete Article</Tooltip>
-		<Icon name="link-solid" />
+		<Icon name="link-solid" on:click={handleCopyArticle}/>
 		<Tooltip placement="bottom">Copy Article Link</Tooltip>
 		<Icon name="share-all-solid" />
 		<Tooltip placement="bottom">Share Article</Tooltip>
