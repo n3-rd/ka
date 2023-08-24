@@ -1,5 +1,5 @@
 <script>
-	import { currentArticle } from './../stores.js';
+	import { currentArticle } from '$lib/stores.js';
 	import ArticleHeader from '$lib/article-components/ArticleHeader.svelte';
 	import { Heading, Hr } from 'flowbite-svelte';
 	import ArticleInfo from './article-components/ArticleInfo.svelte';

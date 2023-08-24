@@ -1,5 +1,5 @@
 <script>
-	import { deleteArticle } from './../../stores.js';
+	import { deleteArticle } from '$lib/stores.js';
 	import { db } from '$lib/db.js';
 	import { Avatar, Popover, Tooltip } from 'flowbite-svelte';
 	import { Icon } from 'flowbite-svelte-icons';

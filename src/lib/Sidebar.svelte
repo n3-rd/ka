@@ -1,5 +1,5 @@
 <script>
-	import { currentArticle } from './../stores.js';
+	import { currentArticle } from '$lib/stores.js';
 	import { db } from '$lib/db.js';
 	import { Sidebar } from 'flowbite-svelte';
 	import { liveQuery } from 'dexie';
