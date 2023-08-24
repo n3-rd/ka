@@ -12,7 +12,7 @@
 			<Sidebar />
 		</aside>
 
-		<div class="content bg-slate-50 grid w-full">
+		<div class="content bg-slate-50 w-full">
 			<!-- Navbar -->
 			<nav class="navbar">
 				<!-- Your navbar content here -->
@@ -20,7 +20,7 @@
 			</nav>
 
 			<!-- Main content area -->
-			<div class="main-content overflow-y-scroll dark:bg-dark-900">
+			<div class="main-content overflow-y-scroll dark:bg-dark-900 h-full">
 				<!-- Your main content here -->
 				<slot />
 			</div>
