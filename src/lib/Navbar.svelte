@@ -11,6 +11,17 @@
 		DropdownHeader,
 		DropdownDivider
 	} from 'flowbite-svelte';
+	import {theme} from '$lib/theme.js'
+
+	console.log($theme)
+	const toggleTheme = () => {
+		if ($theme == 'dark') {
+			theme.set('light')
+		} else {
+			theme.set('dark')
+		}
+	}
+
 </script>
 
 <Navbar let:hidden let:toggle>
@@ -25,19 +36,18 @@
 	<Dropdown placement="bottom" triggeredBy="#avatar-menu">
 		<DropdownHeader>
 			<span class="block text-sm"> Bonnie Green </span>
-			<span class="block truncate text-sm font-medium"> name@flowbite.com </span>
+			
 		</DropdownHeader>
-		<DropdownItem>Dashboard</DropdownItem>
+		<DropdownItem>Profile</DropdownItem>
 		<DropdownItem>Settings</DropdownItem>
-		<DropdownItem>Earnings</DropdownItem>
 		<DropdownDivider />
 		<DropdownItem>Sign out</DropdownItem>
 	</Dropdown>
-	<NavUl {hidden}>
-		<NavLi href="/" active={true}>Home</NavLi>
-		<NavLi href="/about">About</NavLi>
-		<NavLi href="/services">Services</NavLi>
-		<NavLi href="/pricing">Pricing</NavLi>
-		<NavLi href="/contact">Contact</NavLi>
-	</NavUl>
+	 <NavUl {hidden}>
+        {#if $theme == 'dark'}
+            <NavLi class="cursor-pointer" on:click={() => toggleTheme()}>Light Mode</NavLi>
+        {:else}
+            <NavLi class="cursor-pointer" on:click={() => toggleTheme()}>Dark Mode</NavLi>
+        {/if}
+    </NavUl>
 </Navbar>

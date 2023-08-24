@@ -17,11 +17,6 @@
 	export let image;
 
 	/**
-	 * Description
-	 * @param {any} article
-	 */
-
-	/**
 	 * @type {number}
 	 */
 	export let id;
