@@ -15,7 +15,7 @@
 	 * @returns {any}
 	 */
 	const setCurrentArticle = (
-		/** @type {{id:number; url: string; title: string; author: string; published: string; ttr: number; image: string; content: string; }} */ article
+		/** @type {{ id:number; url: string; title: string; author: string; published: string; ttr: number; image: string; content: string; }} */ article
 	) => {
 		currentArticle.set(article);
 		console.log($currentArticle);
