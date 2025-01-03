@@ -1,5 +1,8 @@
 <script>
 	import { Heading } from 'flowbite-svelte';
+	/**
+	 * @type {string}
+	 */
 	export let headingText;
 </script>
 

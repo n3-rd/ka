@@ -38,6 +38,7 @@
 	.sidebar {
 		/* Define styles for the sidebar */
 		flex: 0 0 320px; /* Adjust width as needed */
+		max-width: 320px;
 		background-color: #f0f0f0;
 		/* Other styles... */
 	}

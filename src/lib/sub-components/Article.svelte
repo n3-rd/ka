@@ -1,5 +1,13 @@
 <script>
 	import { Avatar, Popover } from 'flowbite-svelte';
+	/**
+	 * @type {String}
+	 */
+	export let title;
+	/**
+	 * @type {String}
+	 */
+	export let source;
 </script>
 
 <div
@@ -9,10 +17,10 @@
 	<Avatar src="/img/user-placeholder.png" alt="list icon" class="flex-shrink-0" rounded />
 	<div class="min-w-0">
 		<p class="text-sm font-semibold text-gray-900 truncate dark:text-white">
-			How to create better routes in sveltekit
+			{title}
 		</p>
 		<p class="text-sm text-gray-500 truncate dark:text-gray-400">
-			from <span class="text-primary-800 font-semibold">N3rd's Blog</span>
+			from <span class="text-primary-800 font-semibold">{source}</span>
 		</p>
 	</div>
 </div>

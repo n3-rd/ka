@@ -1,21 +1,38 @@
 <script>
+	import { currentArticle } from './../stores.js';
+	import { db } from '$lib/db.js';
 	import { Sidebar } from 'flowbite-svelte';
+	import { liveQuery } from 'dexie';
 	import Article from '$lib/sub-components/Article.svelte';
 	import SpeedDialButton from '$lib/sub-components/SpeedDialButton.svelte';
+	import { onMount } from 'svelte';
+
+	// @ts-ignore
+	let articleData = liveQuery(() => db.articles.toArray());
+	/**
+	 * Description
+	 * @param {any} article
+	 * @returns {any}
+	 */
+	const setCurrentArticle = (
+		/** @type {{ url: string; title: string; author: string; published: string; ttr: number; image: string; content: string; }} */ article
+	) => {
+		currentArticle.set(article);
+		console.log($currentArticle);
+	};
 </script>
 
 <Sidebar asideClass="h-screen bg-white py-3 px-2 relative">
 	<div class="flex flex-col gap-4 max-h-screen overflow-y-scroll">
-		<Article />
-		<Article />
-		<Article />
-		<Article />
-		<Article />
-		<Article />
-		<Article />
-		<Article />
-		<Article />
-		<Article />
+		{#if $articleData}
+			<ul class="divide-y divide-slate-100 dark:divide-none">
+				{#each $articleData.reverse() as article}
+					<button on:click={setCurrentArticle(article)}>
+						<Article title={article.title} source={article.source} />
+					</button>
+				{/each}
+			</ul>
+		{/if}
 	</div>
 	<div class="absolute right-2 bottom-2"><SpeedDialButton /></div>
 </Sidebar>
